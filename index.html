@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zlomto.pl – Skup aut za 100 zł</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f7f7;
+      color: #111;
+      padding: 1rem;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img {
+      height: 60px;
+    }
+    main {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .car-loop {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      animation: carLoop 10s linear infinite;
+    }
+    .car-silhouette {
+      width: 80px;
+      height: 40px;
+      background: url('car-silhouette.png') no-repeat center center / contain;
+      filter: brightness(0);
+    }
+    @keyframes carLoop {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    section {
+      max-width: 800px;
+      margin: auto;
+      margin-bottom: 3rem;
+      text-align: left;
+      padding: 0 1rem;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
+    .checklist { margin: 1rem 0; }
+    .checklist span { display: block; margin-bottom: 0.5rem; }
+    form {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      background: black;
+      color: white;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .success {
+      display: none;
+      margin-top: 1rem;
+      color: green;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div></div>
+    <img src="logo - zlomto.pl.png" alt="Zlomto.pl Logo" />
+  </header>
+
+  <main>
+    <div class="car-loop">
+      <div class="car-silhouette"></div>
+      <div class="car-silhouette"></div>
+      <div class="car-silhouette"></div>
+    </div>
+
+    <h1>Skupujemy auta w każdym stanie – szybko i bezproblemowo!</h1>
+    <section>
+      <h2>🟨 Dlaczego my?</h2>
+      <div class="checklist">
+        <span>✅ Odbiór lawetą – bez kosztów i stresu</span>
+        <span>✅ Gotówka od ręki (100 zł za auto)</span>
+        <span>✅ Załatwiamy formalności za Ciebie</span>
+        <span>✅ Legalny proces demontażu</span>
+        <span>✅ Umowa kupna-sprzedaży = 100% bezpieczeństwa</span>
+      </div>
+
+      <h2>🟦 Jak to działa?</h2>
+      <div class="checklist">
+        <span>📞 Zadzwoń lub napisz do nas – krótki opis auta, adres i termin odbioru</span>
+        <span>📝 Podpisz prostą umowę kupna-sprzedaży</span>
+        <span>🚛 Odbieramy auto lawetą – Ty nie musisz nic organizować</span>
+        <span>🪑 Oddajemy auto na legalną utylizację</span>
+        <span>💵 Otrzymujesz 100 zł gotówką lub przelewem</span>
+      </div>
+
+      <h2>🟧 Co będzie potrzebne?</h2>
+      <ul>
+        <li>Dowód rejestracyjny</li>
+        <li>Tablice rejestracyjne</li>
+        <li>Karta pojazdu (jeśli była)</li>
+        <li>Dowód osobisty</li>
+        <li>Twój podpis na naszej umowie</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Wypełnij formularz – przygotujemy umowę!</h2>
+      <form id="carForm">
+        <input type="text" placeholder="Imię i nazwisko właściciela" required />
+        <input type="text" placeholder="Adres zamieszkania" required />
+        <input type="text" placeholder="PESEL właściciela" required />
+        <input type="text" placeholder="Marka i model auta" required />
+        <input type="text" placeholder="Numer VIN" required />
+        <input type="text" placeholder="Numer rejestracyjny" required />
+        <input type="text" placeholder="Rok produkcji" required />
+        <input type="text" placeholder="Przebieg" required />
+        <input type="email" placeholder="Twój email (do wysyłki umowy)" required />
+        <button type="submit">Wygeneruj umowę</button>
+        <div class="success">Dziękujemy! Formularz został przesłany. Skontaktujemy się w ciągu 1–2 dni roboczych (pon.–sob. 9:00–14:00) 😊</div>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('carForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Tutaj będzie wysyłka danych do backendu np. przez fetch do /generate-doc
+      // i backend wygeneruje umowę i prześle na maila
+
+      this.reset();
+      document.querySelector('.success').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
