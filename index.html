@@ -61,6 +61,9 @@
       gap: 40px;
       height: 24px;
       /* powtarzająca się sylwetka jako elementy inline */
+      width: max-content;
+      animation: scrollLeft 4s linear infinite;
+      will-change: transform;
     }
     .banner img {
       height: 24px;
@@ -78,10 +81,6 @@
       100% {
         transform: translateX(-50%);
       }
-    }
-    .banner {
-      animation: scrollLeft 6s linear infinite;
-      will-change: transform;
     }
     h1 {
       font-weight: 800;
@@ -268,5 +267,3 @@
   </section>
 </body>
 </html>
-
-
