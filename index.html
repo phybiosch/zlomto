@@ -3,195 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Odbierzemy Twój pojazd bezpłatnie z dowolnego miejsca w Polsce i zapłacimy Ci 100 zł.</title>
+  <title>ZłomTo.pl – Skup Aut za 100 zł</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+        'Open Sans', 'Helvetica Neue', sans-serif;
       background-color: #f8f8f8;
       color: #111;
+      line-height: 1.6;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 20px;
     }
 
     header {
       text-align: center;
-      padding: 30px 20px 10px;
+      margin-bottom: 1rem;
     }
 
     header img {
-      max-width: 220px;
+      max-width: 240px;
       height: auto;
     }
 
     .banner-wrapper {
       position: relative;
       width: 100%;
-      max-width: 400px;
+      max-width: 320px;
+      height: 24px;
+      margin: 0 auto 1.3rem;
       overflow: hidden;
-      margin-bottom: 20px;
+      user-select: none;
+      z-index: 1;
     }
 
     .banner {
       display: flex;
-      animation: scrollLeft 15s linear infinite;
+      gap: 40px;
+      height: 24px;
+      width: max-content;
+      animation: scrollLeft 8s linear infinite;
+      will-change: transform;
     }
 
     .banner img {
-      height: 50px;
-      margin-right: 30px;
+      height: 24px;
+      width: auto;
     }
 
     @keyframes scrollLeft {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
-    .description {
-      text-align: center;
-      font-size: 18px;
-      padding: 0 20px;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .form-container {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      max-width: 400px;
-      width: 90%;
-      padding: 24px;
-      margin-bottom: 60px;
-    }
-
-    .form-step {
-      display: none;
-    }
-
-    .form-step.active {
-      display: block;
-    }
-
-    .form-step label {
-      font-weight: 600;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .form-step input,
-    .form-step textarea,
-    .form-step select {
+    main {
+      max-width: 500px;
       width: 100%;
-      padding: 10px;
-      margin-bottom: 16px;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    h1, h2, p {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, select, button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 8px;
       border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 16px;
-      box-sizing: border-box;
     }
 
     button {
-      background-color: #007aff;
-      color: white;
+      background-color: #111;
+      color: #fff;
       border: none;
-      border-radius: 6px;
-      padding: 10px 16px;
-      font-size: 16px;
       cursor: pointer;
-      margin-right: 8px;
     }
 
-    button:hover {
-      background-color: #005bb5;
+    .hidden {
+      display: none;
     }
 
-    .thank-you p {
-      font-size: 16px;
-      font-weight: 600;
-      color: #007700;
+    .thanks {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-top: 2rem;
     }
 
-    @media (max-width: 480px) {
-      header img {
-        max-width: 160px;
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
       }
-      .banner img {
-        height: 40px;
-        margin-right: 20px;
+      header img {
+        max-width: 180px;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="logo - zlomto.pl" alt="ZłomTo.pl Logo" />
+    <img src="logo - zlomto.pl.png" alt="ZłomTo.pl Logo" />
     <div class="banner-wrapper">
       <div class="banner">
-        <img src="car-silhouette.png" alt="Auto" />
-        <img src="car-silhouette.png" alt="Auto" />
-        <img src="car-silhouette.png" alt="Auto" />
-        <img src="car-silhouette.png" alt="Auto" />
+        <img src="silhouette.svg" alt="Silhouette" />
+        <img src="silhouette.svg" alt="Silhouette" />
+        <img src="silhouette.svg" alt="Silhouette" />
+        <img src="silhouette.svg" alt="Silhouette" />
       </div>
     </div>
   </header>
 
-  <div class="description">
-    <strong>Odbierzemy Twój pojazd bezpłatnie z dowolnego miejsca w Polsce i zapłacimy Ci 100 zł.</strong><br>
-    <br>
-    Niesprawny? – Nie ma problemu<br>
-    Brak kół? – Nie ma problemu<br>
-    Brak ubezpieczenia? – Nie ma problemu
-  </div>
+  <main>
+    <h1>Sprzedaj auto za 100 zł</h1>
+    <p>Wypełnij prosty formularz. To zajmie tylko chwilę.</p>
 
-  <div class="form-container">
-    <form id="multiStepForm">
-      <!-- Krok 1 -->
-      <div class="form-step active">
-        <label for="name">Imię i nazwisko:</label>
-        <input type="text" id="name" name="name" required placeholder="Wpisz imię i nazwisko">
-        <button type="button" class="next-btn">Dalej</button>
+    <form id="zlomForm">
+      <div class="step" id="step1">
+        <input type="text" name="name" placeholder="Imię i nazwisko" required />
+        <button type="button" onclick="nextStep(1)">Dalej</button>
       </div>
 
-      <!-- Krok 2 -->
-      <div class="form-step">
-        <label for="phone">Numer telefonu:</label>
-        <input type="tel" id="phone" name="phone" placeholder="Wpisz numer telefonu">
-        <label for="email">lub E-mail:</label>
-        <input type="email" id="email" name="email" placeholder="Wpisz adres e-mail">
-        <button type="button" class="prev-btn">Wstecz</button>
-        <button type="button" class="next-btn">Dalej</button>
+      <div class="step hidden" id="step2">
+        <input type="tel" name="phone" placeholder="Numer telefonu" required />
+        <button type="button" onclick="nextStep(2)">Dalej</button>
       </div>
 
-      <!-- Krok 3 -->
-      <div class="form-step">
-        <label for="makeModel">Marka i model pojazdu:</label>
-        <input type="text" id="makeModel" name="makeModel" required placeholder="Np. Audi A4">
-        <button type="button" class="prev-btn">Wstecz</button>
-        <button type="button" class="next-btn">Dalej</button>
+      <div class="step hidden" id="step3">
+        <input type="text" name="car" placeholder="Marka i model auta" required />
+        <button type="submit">Wyślij zgłoszenie</button>
       </div>
+    </form>
 
-      <!-- Krok 4 -->
-      <div class="form-step">
-        <label for="year">Rok rejestracji:</label>
-        <input type="text" id="year" name="year" required placeholder="Np. 2005">
-        <button type="button" class="prev-btn">Wstecz</button>
-        <button type="button" class="next-btn">Dalej</button>
-      </div>
+    <div class="thanks hidden" id="thankYou">
+      <p>Dziękujemy za wypełnienie formularza!<br>
+      Odezwiemy się w ciągu 2 dni roboczych.<br>
+      Pracujemy od poniedziałku do soboty, 9:00–15:00.</p>
+    </div>
+  </main>
 
-      <!-- Krok 5 -->
-      <div class="form-step">
-        <label for="regNumber">Numer rejestracyjny:</label>
-        <input type="text" id="regNumber" name="regNumber" required placeholder="Np. WX12345">
-        <button type="button" class="prev-btn">Wstecz</button>
-        <button type="button" class="next-btn">Dalej</button>
-      </div>
+  <script>
+    const steps = ["step1", "step2", "step3"];
+    let current = 0;
 
-      <!-- Krok 6 -->
-      <div class="form-step">
-        <label>Czy pojazd ma koła?</label>
-        <select id="hasWheels" name="hasWheels" required>
-          <option value="">Wybierz</option
+    function nextStep(index) {
+      document.getElementById(steps[index - 1]).classList.add("hidden");
+      document.getElementById(steps[index]).classList.remove("hidden");
+    }
 
+    document.getElementById("zlomForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      this.classList.add("hidden");
+      document.getElementById("thankYou").classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
