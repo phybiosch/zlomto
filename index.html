@@ -2,177 +2,206 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZłomTo.pl – Sprzedaj auto za 100 zł</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZŁOMTO.PL – Sprzedaj auto za 100 zł</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #f9f9f9;
-      color: #222;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f8f9fa;
+      color: #212529;
+      line-height: 1.6;
     }
     header {
       text-align: center;
-      padding: 2rem 1rem 1rem;
+      padding: 2rem 1rem;
       background-color: #ffffff;
+      position: relative;
     }
-    header img {
-      max-width: 200px;
+    header img#logo {
+      max-width: 400px; /* bigger logo */
+      display: block;
+      margin: 0 auto 1rem auto;
+      position: relative;
+      z-index: 2;
+    }
+    /* Container for cars positioned just below the logo */
+    .car-carousel {
+      position: relative;
+      width: 320px; /* same or slightly larger than logo width */
+      height: 80px; /* height for car silhouettes */
+      margin: 0 auto 1.5rem auto;
+      overflow: visible;
+      pointer-events: none; /* cars not interactive */
+    }
+    /* Each car silhouette styling */
+    .car {
+      position: absolute;
+      width: 80px;
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform-origin: 40px 40px; /* center of each car image */
+      animation: moveCars 8s linear infinite;
+    }
+    /* Position each car at different start animation delays to create spacing */
+    .car:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .car:nth-child(2) {
+      animation-delay: 2s;
+    }
+    .car:nth-child(3) {
+      animation-delay: 4s;
+    }
+    .car:nth-child(4) {
+      animation-delay: 6s;
+    }
+    /* Animation that moves each car in a circle path */
+    @keyframes moveCars {
+      0% {
+        transform: rotate(0deg) translateX(120px) rotate(0deg);
+      }
+      100% {
+        transform: rotate(-360deg) translateX(120px) rotate(360deg);
+      }
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #000000;
       margin-bottom: 1rem;
     }
     .slogan {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #111;
-    }
-    .car-animation {
+      font-size: 1.25rem;
+      margin: 1rem auto;
       text-align: center;
-      margin-top: 1rem;
-    }
-    .car-animation img {
-      width: 120px;
-      animation: move 3s linear infinite;
-    }
-    @keyframes move {
-      0% { transform: translateX(-20px); }
-      50% { transform: translateX(20px); }
-      100% { transform: translateX(-20px); }
+      max-width: 800px;
     }
     .form-container {
-      max-width: 500px;
-      margin: 2rem auto;
+      background-color: #ffffff;
       padding: 2rem;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      margin: 2rem auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
     }
-    .form-step {
-      display: none;
+    .form-container h2 {
+      margin-bottom: 1rem;
     }
-    .form-step.active {
-      display: block;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
     label {
       font-weight: 600;
-      display: block;
-      margin: 1rem 0 0.5rem;
     }
-    input {
-      width: 100%;
+    input,
+    textarea {
       padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
       font-size: 1rem;
     }
     button {
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background: #007bff;
-      color: white;
+      background-color: #000000;
+      color: #ffffff;
+      padding: 0.75rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 4px;
       font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
     }
-    .confirmation {
-      text-align: center;
-      font-weight: 600;
-      font-size: 1.2rem;
-      color: #28a745;
+    button:hover {
+      background-color: #333333;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo - zlomto.pl.png" alt="ZłomTo Logo">
-    <div class="car-animation">
-      <img src="car-silhouette.png" alt="Animacja samochodu">
+    <img src="logo - zlomto.pl.png" alt="ZŁOMTO.PL logo" id="logo" />
+    <div class="car-carousel">
+      <img
+        src="car-silhouette.png"
+        alt="Car"
+        class="car"
+        draggable="false"
+      />
+      <img
+        src="car-silhouette.png"
+        alt="Car"
+        class="car"
+        draggable="false"
+      />
+      <img
+        src="car-silhouette.png"
+        alt="Car"
+        class="car"
+        draggable="false"
+      />
+      <img
+        src="car-silhouette.png"
+        alt="Car"
+        class="car"
+        draggable="false"
+      />
     </div>
-    <p class="slogan">Sprzedaj auto za 100 zł – legalnie, szybko i bezpiecznie</p>
+    <h1>Sprzedaj auto za 100 zł – legalnie, szybko i bezpiecznie</h1>
+    <p class="slogan">
+      Bez stresu i formalności – my zajmiemy się resztą. Wypełnij formularz i
+      odbierz umowę kupna-sprzedaży!
+    </p>
   </header>
 
-  <div class="form-container">
-    <form id="stepForm">
-      <div class="form-step active">
-        <label>Imię i nazwisko właściciela</label>
-        <input type="text" name="imie" required />
-        <button type="button" onclick="nextStep()">Następne</button>
-      </div>
-      <div class="form-step">
-        <label>Adres zamieszkania</label>
-        <input type="text" name="adres" required />
-        <button type="button" onclick="nextStep()">Następne</button>
-      </div>
-      <div class="form-step">
-        <label>PESEL właściciela</label>
-        <input type="text" name="pesel" required />
-        <button type="button" onclick="nextStep()">Następne</button>
-      </div>
-      <div class="form-step">
-        <label>Marka i model auta</label>
-        <input type="text" name="marka" required />
-        <button type="button" onclick="nextStep()">Następne</button>
-      </div>
-      <div class="form-step">
-        <label>Numer VIN</label>
-        <input type="text" name="vin" required />
-        <button type="button" onclick="nextStep()">Następne</button>
-      </div>
-      <div class="form-step">
-        <label>Numer rejestracyjny</label>
-        <input type="text" name="rej" required />
-        <button type="button" onclick="nextStep()">Następne</button>
-      </div>
-      <div class="form-step">
-        <label>Rok produkcji</label>
-        <input type="number" name="rok" required />
-        <button type="button" onclick="nextStep()">Następne</button>
-      </div>
-      <div class="form-step">
-        <label>Przebieg</label>
-        <input type="text" name="przebieg" required />
-        <button type="button" onclick="nextStep()">Następne</button>
-      </div>
-      <div class="form-step">
-        <label>Twój email (do wysyłki umowy)</label>
-        <input type="email" name="email" required />
-        <button type="button" onclick="nextStep()">Następne</button>
-      </div>
-      <div class="form-step">
-        <label>Numer telefonu</label>
-        <input type="text" name="telefon" required />
-        <button type="submit">Wyślij</button>
-      </div>
+  <section class="form-container">
+    <h2>Formularz zgłoszeniowy</h2>
+    <form action="https://formspree.io/f/xwkgrvze" method="POST">
+      <label for="name">Imię i nazwisko właściciela</label>
+      <input type="text" id="name" name="Imię i nazwisko" required />
+
+      <label for="address">Adres zamieszkania</label>
+      <input type="text" id="address" name="Adres zamieszkania" required />
+
+      <label for="pesel">PESEL właściciela</label>
+      <input type="text" id="pesel" name="PESEL" required />
+
+      <label for="car">Marka i model auta</label>
+      <input type="text" id="car" name="Marka i model" required />
+
+      <label for="vin">Numer VIN</label>
+      <input type="text" id="vin" name="VIN" required />
+
+      <label for="plates">Numer rejestracyjny</label>
+      <input type="text" id="plates" name="Numer rejestracyjny" required />
+
+      <label for="year">Rok produkcji</label>
+      <input type="number" id="year" name="Rok produkcji" required />
+
+      <label for="mileage">Przebieg</label>
+      <input type="number" id="mileage" name="Przebieg" required />
+
+      <label for="email">Twój email (do wysyłki umowy)</label>
+      <input type="email" id="email" name="Email" required />
+
+      <label for="phone">Numer telefonu</label>
+      <input type="tel" id="phone" name="Telefon" required />
+
+      <input type="hidden" name="_cc" value="tiptop.zrobione@gmail.com" />
+
+      <button type="submit">Wyślij zgłoszenie</button>
     </form>
-    <div class="confirmation" style="display: none;">
-      Dziękujemy za wypełnienie formularza!<br>
-      Odezwzwiemy się w ciągu 2 dni roboczych.<br>
-      Pracujemy od poniedziałku do soboty, 9:00–15:00.
-    </div>
-  </div>
-
-  <script>
-    const steps = document.querySelectorAll('.form-step');
-    let currentStep = 0;
-
-    function nextStep() {
-      if (steps[currentStep].querySelector('input').checkValidity()) {
-        steps[currentStep].classList.remove('active');
-        currentStep++;
-        steps[currentStep].classList.add('active');
-      } else {
-        steps[currentStep].querySelector('input').reportValidity();
-      }
-    }
-
-    document.getElementById('stepForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      document.getElementById('stepForm').style.display = 'none';
-      document.querySelector('.confirmation').style.display = 'block';
-
-      // Here you can add the email sending logic (e.g., via Netlify Forms or a backend API)
-    });
-  </script>
+  </section>
 </body>
 </html>
