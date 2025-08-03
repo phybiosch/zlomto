@@ -34,25 +34,54 @@
       margin: 4rem auto 3rem;
       text-align: center;
       padding: 0 1rem;
+      position: relative;
     }
     header img#logo {
-      width: 350px;
+      width: 280px;
       max-width: 90vw;
       height: auto;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
       user-select: none;
+      position: relative;
+      z-index: 2;
     }
-    /* Sylwetka samochodów jako linia pod logo */
-    .banner {
+    /* Kontener animacji sylwetek */
+    .banner-wrapper {
+      position: relative;
       width: 320px;
       max-width: 90vw;
       height: 24px;
-      margin: 0 auto 1.2rem;
-      background: url('car-silhouette.png') repeat-x;
-      background-size: contain;
-      filter: brightness(0.85);
-      opacity: 0.90;
+      margin: 0 auto 1.3rem;
+      overflow: hidden;
       user-select: none;
+      z-index: 1;
+    }
+    .banner {
+      display: flex;
+      gap: 40px;
+      height: 24px;
+      /* powtarzająca się sylwetka jako elementy inline */
+    }
+    .banner img {
+      height: 24px;
+      width: auto;
+      opacity: 0.35;
+      filter: brightness(0.3);
+      user-select: none;
+      flex-shrink: 0;
+    }
+    /* Animacja przesuwania sylwetek */
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    .banner {
+      animation: scrollLeft 20s linear infinite;
+      will-change: transform;
     }
     h1 {
       font-weight: 800;
@@ -137,12 +166,15 @@
       }
       header img#logo {
         width: 240px;
-        margin-bottom: 0.15rem;
+        margin-bottom: 0.2rem;
       }
-      .banner {
+      .banner-wrapper {
         width: 260px;
         height: 18px;
         margin-bottom: 1rem;
+      }
+      .banner img {
+        height: 18px;
       }
       h1 {
         font-size: 2rem;
@@ -171,7 +203,24 @@
 <body>
   <header>
     <img id="logo" src="logo - zlomto.pl.png" alt="ZŁOMTO.PL logo" />
-    <div class="banner"></div>
+    <div class="banner-wrapper" aria-hidden="true">
+      <div class="banner" aria-hidden="true">
+        <!-- Powtarzamy obraz sylwetki, aby uzyskać efekt płynnego przesuwania -->
+        <img src="car-silhouette.png" alt="" />
+        <img src="car-silhouette.png" alt="" />
+        <img src="car-silhouette.png" alt="" />
+        <img src="car-silhouette.png" alt="" />
+        <img src="car-silhouette.png" alt="" />
+        <img src="car-silhouette.png" alt="" />
+        <!-- Druga seria powtórzona do płynności animacji -->
+        <img src="car-silhouette.png" alt="" />
+        <img src="car-silhouette.png" alt="" />
+        <img src="car-silhouette.png" alt="" />
+        <img src="car-silhouette.png" alt="" />
+        <img src="car-silhouette.png" alt="" />
+        <img src="car-silhouette.png" alt="" />
+      </div>
+    </div>
     <h1>Sprzedaj auto za 100 zł – legalnie, szybko i bezpiecznie</h1>
     <p class="slogan">
       Bez stresu i formalności – my zajmiemy się resztą. Wypełnij formularz i
@@ -219,4 +268,3 @@
   </section>
 </body>
 </html>
-
