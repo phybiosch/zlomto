@@ -48,7 +48,7 @@
     /* Kontener animacji sylwetek */
     .banner-wrapper {
       position: relative;
-      width: 320px;
+      width: 320px; /* lub max-width: 90vw */
       max-width: 90vw;
       height: 24px;
       margin: 0 auto 1.3rem;
@@ -60,9 +60,8 @@
       display: flex;
       gap: 40px;
       height: 24px;
-      /* powtarzająca się sylwetka jako elementy inline */
-      width: max-content;
-      animation: scrollLeft 10s linear infinite;
+      width: max-content; /* to najważniejsze */
+      animation: scrollLeft 8s linear infinite;
       will-change: transform;
     }
     .banner img {
@@ -267,4 +266,5 @@
   </section>
 </body>
 </html>
+
 
