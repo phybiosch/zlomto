@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Odbierzemy Twój pojazd bezpłatnie z dowolnego miejsca w Polsce i zapłacimy Ci 100 zł.</title>
   <style>
     body {
@@ -20,9 +20,13 @@
       padding: 40px 20px 10px;
     }
 
-    header img {
-      max-width: 200px;
-      height: auto;
+    header h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      margin: 0;
     }
 
     .banner-wrapper {
@@ -34,7 +38,7 @@
 
     .banner {
       display: flex;
-      animation: scrollLeft 8s linear infinite;
+      animation: scrollLeft 10s linear infinite;
     }
 
     .banner img {
@@ -75,7 +79,7 @@
       margin-bottom: 8px;
     }
 
-    .form-step input, .form-step textarea {
+    .form-step input, .form-step textarea, .form-step select {
       width: 100%;
       padding: 10px;
       margin-bottom: 16px;
@@ -83,11 +87,6 @@
       border-radius: 6px;
       font-size: 16px;
       box-sizing: border-box;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 80px;
     }
 
     button {
@@ -112,8 +111,8 @@
     }
 
     @media (max-width: 480px) {
-      header img {
-        max-width: 160px;
+      header h1 {
+        font-size: 20px;
       }
       .banner img {
         height: 40px;
@@ -125,70 +124,74 @@
 <body>
 
   <header>
-    <img src="logo.png" alt="ZłomTo.pl Logo" />
+    <h1>Odbierzemy Twój pojazd bezpłatnie z dowolnego miejsca w Polsce i zapłacimy Ci 100 zł.</h1>
+    <p>Niesprawny? - Nie ma problemu</p>
+    <p>Brak kół? - Nie ma problemu</p>
+    <p>Brak ubezpieczenia? - Nie ma problemu</p>
   </header>
 
-  <!-- Animacja samochodów -->
   <div class="banner-wrapper">
     <div class="banner">
-      <img src="car-silhouette.png" alt="Samochód" />
       <img src="car-silhouette.png" alt="Samochód" />
       <img src="car-silhouette.png" alt="Samochód" />
       <img src="car-silhouette.png" alt="Samochód" />
     </div>
   </div>
 
-  <!-- Formularz -->
   <div class="form-container">
     <form id="multiStepForm">
-      <!-- Krok 1 -->
       <div class="form-step active">
         <label for="name">Imię i nazwisko:</label>
-        <input type="text" id="name" name="name" required placeholder="Wpisz imię i nazwisko">
+        <input type="text" id="name" name="name" required>
         <button type="button" class="next-btn">Dalej</button>
       </div>
 
-      <!-- Krok 2 -->
       <div class="form-step">
-        <label for="phone">Numer telefonu:</label>
-        <input type="tel" id="phone" name="phone" required placeholder="Wpisz numer telefonu">
+        <label for="phone">Numer telefonu (lub e-mail):</label>
+        <input type="tel" id="phone" name="phone">
+        <input type="email" id="email" name="email">
         <button type="button" class="prev-btn">Wstecz</button>
         <button type="button" class="next-btn">Dalej</button>
       </div>
 
-      <!-- Krok 3 -->
       <div class="form-step">
-        <label for="carDetails">Informacje o samochodzie:</label>
-        <textarea id="carDetails" name="carDetails" required placeholder="Wpisz szczegóły o aucie"></textarea>
+        <label for="makeModel">Marka i model pojazdu:</label>
+        <input type="text" id="makeModel" name="makeModel" required>
+        <button type="button" class="prev-btn">Wstecz</button>
+        <button type="button" class="next-btn">Dalej</button>
+      </div>
+
+      <div class="form-step">
+        <label for="year">Rok rejestracji:</label>
+        <input type="text" id="year" name="year" required>
+        <button type="button" class="prev-btn">Wstecz</button>
+        <button type="button" class="next-btn">Dalej</button>
+      </div>
+
+      <div class="form-step">
+        <label for="regNumber">Numer rejestracyjny:</label>
+        <input type="text" id="regNumber" name="regNumber" required>
+        <button type="button" class="prev-btn">Wstecz</button>
+        <button type="button" class="next-btn">Dalej</button>
+      </div>
+
+      <div class="form-step">
+        <label>Czy pojazd ma koła?</label>
+        <select id="hasWheels" name="hasWheels" required>
+          <option value="">Wybierz</option>
+          <option value="Tak">Tak</option>
+          <option value="Nie">Nie</option>
+        </select>
+        <label>Czy pojazd ma ubezpieczenie?</label>
+        <select id="hasInsurance" name="hasInsurance" required>
+          <option value="">Wybierz</option>
+          <option value="Tak">Tak</option>
+          <option value="Nie">Nie</option>
+        </select>
         <button type="button" class="prev-btn">Wstecz</button>
         <button type="submit" class="submit-btn">Wyślij zgłoszenie</button>
       </div>
 
-      <!-- Krok 4 -->
-      <div class="form-step">
-        <label for="carDetails">Informacje o samochodzie:</label>
-        <textarea id="carDetails" name="carDetails" required placeholder="Wpisz szczegóły o aucie"></textarea>
-        <button type="button" class="prev-btn">Wstecz</button>
-        <button type="submit" class="submit-btn">Wyślij zgłoszenie</button>
-      </div>
-
-      <!-- Krok 5 -->
-      <div class="form-step">
-        <label for="carDetails">Informacje o samochodzie:</label>
-        <textarea id="carDetails" name="carDetails" required placeholder="Wpisz szczegóły o aucie"></textarea>
-        <button type="button" class="prev-btn">Wstecz</button>
-        <button type="submit" class="submit-btn">Wyślij zgłoszenie</button>
-      </div>
-
-      <!-- Krok 6 -->
-      <div class="form-step">
-        <label for="carDetails">Informacje o samochodzie:</label>
-        <textarea id="carDetails" name="carDetails" required placeholder="Wpisz szczegóły o aucie"></textarea>
-        <button type="button" class="prev-btn">Wstecz</button>
-        <button type="submit" class="submit-btn">Wyślij zgłoszenie</button>
-      </div>
-
-      <!-- Podziękowanie -->
       <div class="form-step thank-you" style="display:none;">
         <p>
           Dziękujemy za wypełnienie formularza!<br>
@@ -207,22 +210,32 @@
     function showStep(step) {
       steps.forEach((el, i) => {
         el.style.display = (i === step) ? 'block' : 'none';
-        if(i === step) el.classList.add('active'); else el.classList.remove('active');
+        el.classList.toggle('active', i === step);
       });
     }
 
     form.addEventListener('click', e => {
-      if(e.target.classList.contains('next-btn')) {
-        const inputs = steps[currentStep].querySelectorAll('input, textarea');
-        for(const input of inputs) {
-          if(!input.checkValidity()) {
-            input.reportValidity();
-            return;
-          }
+      if (e.target.classList.contains('next-btn')) {
+        const inputs = steps[currentStep].querySelectorAll('input, select');
+        let valid = false;
+
+        if (currentStep === 1) {
+          const phone = document.getElementById('phone').value.trim();
+          const email = document.getElementById('email').value.trim();
+          valid = phone !== '' || email !== '';
+        } else {
+          valid = Array.from(inputs).every(input => input.checkValidity());
         }
+
+        if (!valid) {
+          inputs[0].reportValidity();
+          return;
+        }
+
         currentStep++;
         showStep(currentStep);
-      } else if(e.target.classList.contains('prev-btn')) {
+
+      } else if (e.target.classList.contains('prev-btn')) {
         currentStep--;
         showStep(currentStep);
       }
