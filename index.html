@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Odbierzemy Twój pojazd bezpłatnie z dowolnego miejsca w Polsce i zapłacimy Ci 100 zł.</title>
   <style>
     body {
@@ -17,42 +17,43 @@
 
     header {
       text-align: center;
-      padding: 40px 20px 10px;
+      padding: 30px 20px 10px;
     }
 
-    header h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      margin: 0;
+    header img {
+      max-width: 220px;
+      height: auto;
     }
 
     .banner-wrapper {
-      overflow: hidden;
+      position: relative;
       width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
+      max-width: 400px;
+      overflow: hidden;
+      margin-bottom: 20px;
     }
 
     .banner {
       display: flex;
-      animation: scrollLeft 10s linear infinite;
+      animation: scrollLeft 15s linear infinite;
     }
 
     .banner img {
       height: 50px;
-      margin-right: 40px;
+      margin-right: 30px;
     }
 
     @keyframes scrollLeft {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .description {
+      text-align: center;
+      font-size: 18px;
+      padding: 0 20px;
+      margin-bottom: 20px;
+      line-height: 1.6;
     }
 
     .form-container {
@@ -62,7 +63,7 @@
       max-width: 400px;
       width: 90%;
       padding: 24px;
-      margin: 30px auto 60px;
+      margin-bottom: 60px;
     }
 
     .form-step {
@@ -79,7 +80,9 @@
       margin-bottom: 8px;
     }
 
-    .form-step input, .form-step textarea, .form-step select {
+    .form-step input,
+    .form-step textarea,
+    .form-step select {
       width: 100%;
       padding: 10px;
       margin-bottom: 16px;
@@ -111,8 +114,8 @@
     }
 
     @media (max-width: 480px) {
-      header h1 {
-        font-size: 20px;
+      header img {
+        max-width: 160px;
       }
       .banner img {
         height: 40px;
@@ -124,131 +127,70 @@
 <body>
 
   <header>
-    <h1>Odbierzemy Twój pojazd bezpłatnie z dowolnego miejsca w Polsce i zapłacimy Ci 100 zł.</h1>
-    <p>Niesprawny? - Nie ma problemu</p>
-    <p>Brak kół? - Nie ma problemu</p>
-    <p>Brak ubezpieczenia? - Nie ma problemu</p>
+    <img src="logo.png" alt="ZłomTo.pl Logo" />
+    <div class="banner-wrapper">
+      <div class="banner">
+        <img src="car-silhouette.png" alt="Auto" />
+        <img src="car-silhouette.png" alt="Auto" />
+        <img src="car-silhouette.png" alt="Auto" />
+        <img src="car-silhouette.png" alt="Auto" />
+      </div>
+    </div>
   </header>
 
-  <div class="banner-wrapper">
-    <div class="banner">
-      <img src="car-silhouette.png" alt="Samochód" />
-      <img src="car-silhouette.png" alt="Samochód" />
-      <img src="car-silhouette.png" alt="Samochód" />
-    </div>
+  <div class="description">
+    <strong>Odbierzemy Twój pojazd bezpłatnie z dowolnego miejsca w Polsce i zapłacimy Ci 100 zł.</strong><br>
+    <br>
+    Niesprawny? – Nie ma problemu<br>
+    Brak kół? – Nie ma problemu<br>
+    Brak ubezpieczenia? – Nie ma problemu
   </div>
 
   <div class="form-container">
     <form id="multiStepForm">
+      <!-- Krok 1 -->
       <div class="form-step active">
         <label for="name">Imię i nazwisko:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required placeholder="Wpisz imię i nazwisko">
         <button type="button" class="next-btn">Dalej</button>
       </div>
 
+      <!-- Krok 2 -->
       <div class="form-step">
-        <label for="phone">Numer telefonu (lub e-mail):</label>
-        <input type="tel" id="phone" name="phone">
-        <input type="email" id="email" name="email">
+        <label for="phone">Numer telefonu:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Wpisz numer telefonu">
+        <label for="email">lub E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="Wpisz adres e-mail">
         <button type="button" class="prev-btn">Wstecz</button>
         <button type="button" class="next-btn">Dalej</button>
       </div>
 
+      <!-- Krok 3 -->
       <div class="form-step">
         <label for="makeModel">Marka i model pojazdu:</label>
-        <input type="text" id="makeModel" name="makeModel" required>
+        <input type="text" id="makeModel" name="makeModel" required placeholder="Np. Audi A4">
         <button type="button" class="prev-btn">Wstecz</button>
         <button type="button" class="next-btn">Dalej</button>
       </div>
 
+      <!-- Krok 4 -->
       <div class="form-step">
         <label for="year">Rok rejestracji:</label>
-        <input type="text" id="year" name="year" required>
+        <input type="text" id="year" name="year" required placeholder="Np. 2005">
         <button type="button" class="prev-btn">Wstecz</button>
         <button type="button" class="next-btn">Dalej</button>
       </div>
 
+      <!-- Krok 5 -->
       <div class="form-step">
         <label for="regNumber">Numer rejestracyjny:</label>
-        <input type="text" id="regNumber" name="regNumber" required>
+        <input type="text" id="regNumber" name="regNumber" required placeholder="Np. WX12345">
         <button type="button" class="prev-btn">Wstecz</button>
         <button type="button" class="next-btn">Dalej</button>
       </div>
 
+      <!-- Krok 6 -->
       <div class="form-step">
         <label>Czy pojazd ma koła?</label>
         <select id="hasWheels" name="hasWheels" required>
-          <option value="">Wybierz</option>
-          <option value="Tak">Tak</option>
-          <option value="Nie">Nie</option>
-        </select>
-        <label>Czy pojazd ma ubezpieczenie?</label>
-        <select id="hasInsurance" name="hasInsurance" required>
-          <option value="">Wybierz</option>
-          <option value="Tak">Tak</option>
-          <option value="Nie">Nie</option>
-        </select>
-        <button type="button" class="prev-btn">Wstecz</button>
-        <button type="submit" class="submit-btn">Wyślij zgłoszenie</button>
-      </div>
-
-      <div class="form-step thank-you" style="display:none;">
-        <p>
-          Dziękujemy za wypełnienie formularza!<br>
-          Odezwzwiemy się w ciągu 2 dni roboczych.<br>
-          Pracujemy od poniedziałku do soboty, 9:00–15:00.
-        </p>
-      </div>
-    </form>
-  </div>
-
-  <script>
-    const form = document.getElementById('multiStepForm');
-    const steps = form.querySelectorAll('.form-step');
-    let currentStep = 0;
-
-    function showStep(step) {
-      steps.forEach((el, i) => {
-        el.style.display = (i === step) ? 'block' : 'none';
-        el.classList.toggle('active', i === step);
-      });
-    }
-
-    form.addEventListener('click', e => {
-      if (e.target.classList.contains('next-btn')) {
-        const inputs = steps[currentStep].querySelectorAll('input, select');
-        let valid = false;
-
-        if (currentStep === 1) {
-          const phone = document.getElementById('phone').value.trim();
-          const email = document.getElementById('email').value.trim();
-          valid = phone !== '' || email !== '';
-        } else {
-          valid = Array.from(inputs).every(input => input.checkValidity());
-        }
-
-        if (!valid) {
-          inputs[0].reportValidity();
-          return;
-        }
-
-        currentStep++;
-        showStep(currentStep);
-
-      } else if (e.target.classList.contains('prev-btn')) {
-        currentStep--;
-        showStep(currentStep);
-      }
-    });
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      currentStep++;
-      showStep(currentStep);
-    });
-
-    showStep(currentStep);
-  </script>
-
-</body>
-</html>
+          <option value="">Wybierz</option
