@@ -2,275 +2,216 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZŁOMTO.PL – Sprzedaj auto za 100 zł</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
-    rel="stylesheet"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZłomTo.pl – Skupujemy auta za 100 zł</title>
   <style>
-    /* Reset */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-        Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f8f8f8;
       color: #111;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-      padding: 0 1.5rem;
+      align-items: center;
     }
+
     header {
-      max-width: 720px;
-      margin: 4rem auto 3rem;
       text-align: center;
-      padding: 0 1rem;
-      position: relative;
+      padding: 40px 20px 10px;
     }
-    header img#logo {
-      width: 350px;
-      max-width: 90vw;
+
+    header img {
+      max-width: 200px;
       height: auto;
-      margin-bottom: 0.3rem;
-      user-select: none;
-      position: relative;
-      z-index: 2;
     }
-    /* Kontener animacji sylwetek */
+
     .banner-wrapper {
-      position: relative;
-      width: 320px; /* lub max-width: 90vw */
-      max-width: 90vw;
-      height: 24px;
-      margin: 0 auto 1.3rem;
       overflow: hidden;
-      user-select: none;
-      z-index: 1;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
     }
+
     .banner {
       display: flex;
-      gap: 40px;
-      height: 24px;
-      width: max-content; /* to najważniejsze */
       animation: scrollLeft 8s linear infinite;
-      will-change: transform;
     }
+
     .banner img {
-      height: 24px;
-      width: auto;
-      opacity: 0.9;
-      filter: brightness(0.9);
-      user-select: none;
-      flex-shrink: 0;
+      height: 50px;
+      margin-right: 40px;
     }
-    /* Animacja przesuwania sylwetek */
+
     @keyframes scrollLeft {
       0% {
-        transform: translateX(0);
+        transform: translateX(100%);
       }
       100% {
-        transform: translateX(-50%);
+        transform: translateX(-100%);
       }
     }
-    h1 {
-      font-weight: 800;
-      font-size: 2.6rem;
-      margin-bottom: 0.8rem;
-      letter-spacing: -0.02em;
-      color: #000;
-      line-height: 1.2;
-    }
-    .slogan {
-      font-weight: 500;
-      font-size: 1.3rem;
-      color: #444;
-      max-width: 520px;
-      margin: 0 auto;
-      line-height: 1.4;
-    }
-    /* Formularz */
-    section.form-container {
-      max-width: 480px;
-      margin: 2rem auto 4rem;
-      background: #f5f5f7;
-      border-radius: 16px;
-      padding: 2rem 2.5rem;
-      box-shadow: 0 10px 30px rgb(0 0 0 / 0.1);
-      transition: box-shadow 0.3s ease;
-    }
-    section.form-container:hover {
-      box-shadow: 0 12px 36px rgb(0 0 0 / 0.15);
-    }
-    section.form-container h2 {
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: #111;
-      text-align: center;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-    label {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #222;
-    }
-    input, textarea {
-      padding: 0.75rem 1rem;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-      font-family: inherit;
-    }
-    input:focus, textarea:focus {
-      border-color: #0071e3;
-      outline: none;
-      box-shadow: 0 0 8px rgba(0, 113, 227, 0.3);
-    }
-    button {
-      background-color: #0071e3;
-      color: #fff;
-      padding: 0.9rem;
-      border: none;
+
+    .form-container {
+      background: white;
       border-radius: 12px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      user-select: none;
-      margin-top: 0.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      max-width: 400px;
+      width: 90%;
+      padding: 24px;
+      margin: 30px auto 60px;
     }
-    button:hover,
-    button:focus {
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    .form-step label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .form-step input, .form-step textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      background-color: #007aff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+
+    button:hover {
       background-color: #005bb5;
     }
-    /* Responsywność */
+
+    .thank-you p {
+      font-size: 16px;
+      font-weight: 600;
+      color: #007700;
+    }
+
     @media (max-width: 480px) {
-      header {
-        margin: 3rem 1rem 2rem;
-      }
-      header img#logo {
-        width: 240px;
-        margin-bottom: 0.2rem;
-      }
-      .banner-wrapper {
-        width: 260px;
-        height: 18px;
-        margin-bottom: 1rem;
+      header img {
+        max-width: 160px;
       }
       .banner img {
-        height: 18px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      .slogan {
-        font-size: 1.1rem;
-        max-width: 90vw;
-      }
-      section.form-container {
-        max-width: 90vw;
-        padding: 1.8rem 1.8rem;
-      }
-      section.form-container h2 {
-        font-size: 1.5rem;
-      }
-      input, textarea {
-        font-size: 0.95rem;
-      }
-      button {
-        font-size: 1rem;
-        padding: 0.85rem;
+        height: 40px;
+        margin-right: 20px;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img id="logo" src="logo - zlomto.pl.png" alt="ZŁOMTO.PL logo" />
-    <div class="banner-wrapper" aria-hidden="true">
-      <div class="banner" aria-hidden="true">
-        <!-- Powtarzamy obraz sylwetki, aby uzyskać efekt płynnego przesuwania -->
-        <img src="car-silhouette.png" alt="" />
-        <img src="car-silhouette.png" alt="" />
-        <img src="car-silhouette.png" alt="" />
-        <img src="car-silhouette.png" alt="" />
-        <img src="car-silhouette.png" alt="" />
-        <img src="car-silhouette.png" alt="" />
-        <!-- Druga seria powtórzona do płynności animacji -->
-        <img src="car-silhouette.png" alt="" />
-        <img src="car-silhouette.png" alt="" />
-        <img src="car-silhouette.png" alt="" />
-        <img src="car-silhouette.png" alt="" />
-        <img src="car-silhouette.png" alt="" />
-        <img src="car-silhouette.png" alt="" />
-      </div>
-    </div>
-    <h1>Odbierzemy Twój pojazd bezpłatnie z dowolnego miejsca w Polsce i zapłacimy Ci 100 zł!</h1>
-    <p class="slogan">
-      Niesprawny? - Nie ma problemu
-      Brak kół? - Nie ma problemu
-      Brak ubezpieczenia? - Nie ma problemu
-    </p>
-    <p class="slogan">
-      My odbierzemy samochod i ty sie nie musisz martwic o nic.
-    </p>
+    <img src="logo.png" alt="ZłomTo.pl Logo" />
   </header>
 
-  <section class="form-container" aria-labelledby="form-title">
-    <h2 id="form-title">Formularz zgłoszeniowy</h2>
-    <form action="https://formspree.io/f/xwkgrvze" method="POST" novalidate>
-      <label for="name">Imię i nazwisko właściciela</label>
-      <input type="text" id="name" name="Imię i nazwisko" required />
+  <!-- Animacja samochodów -->
+  <div class="banner-wrapper">
+    <div class="banner">
+      <img src="car-silhouette.png" alt="Samochód" />
+      <img src="car-silhouette.png" alt="Samochód" />
+      <img src="car-silhouette.png" alt="Samochód" />
+      <img src="car-silhouette.png" alt="Samochód" />
+    </div>
+  </div>
 
-      <label for="address">Adres zamieszkania</label>
-      <input type="text" id="address" name="Adres zamieszkania" required />
+  <!-- Formularz -->
+  <div class="form-container">
+    <form id="multiStepForm">
+      <!-- Krok 1 -->
+      <div class="form-step active">
+        <label for="name">Imię i nazwisko:</label>
+        <input type="text" id="name" name="name" required placeholder="Wpisz imię i nazwisko">
+        <button type="button" class="next-btn">Dalej</button>
+      </div>
 
-      <label for="pesel">PESEL właściciela</label>
-      <input type="text" id="pesel" name="PESEL" required />
+      <!-- Krok 2 -->
+      <div class="form-step">
+        <label for="phone">Numer telefonu:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Wpisz numer telefonu">
+        <button type="button" class="prev-btn">Wstecz</button>
+        <button type="button" class="next-btn">Dalej</button>
+      </div>
 
-      <label for="car">Marka i model auta</label>
-      <input type="text" id="car" name="Marka i model" required />
+      <!-- Krok 3 -->
+      <div class="form-step">
+        <label for="carDetails">Informacje o samochodzie:</label>
+        <textarea id="carDetails" name="carDetails" required placeholder="Wpisz szczegóły o aucie"></textarea>
+        <button type="button" class="prev-btn">Wstecz</button>
+        <button type="submit" class="submit-btn">Wyślij zgłoszenie</button>
+      </div>
 
-      <label for="vin">Numer VIN</label>
-      <input type="text" id="vin" name="VIN" required />
-
-      <label for="plates">Numer rejestracyjny</label>
-      <input type="text" id="plates" name="Numer rejestracyjny" required />
-
-      <label for="year">Rok produkcji</label>
-      <input type="number" id="year" name="Rok produkcji" required min="1900" max="2099" />
-
-      <label for="mileage">Przebieg</label>
-      <input type="number" id="mileage" name="Przebieg" required min="0" />
-
-      <label for="email">Twój email (do wysyłki umowy)</label>
-      <input type="email" id="email" name="Email" required />
-
-      <label for="phone">Numer telefonu</label>
-      <input type="tel" id="phone" name="Telefon" required pattern="[\d\s\+\-\(\)]+" />
-
-      <input type="hidden" name="_cc" value="tiptop.zrobione@gmail.com" />
-
-      <button type="submit">Wyślij zgłoszenie</button>
+      <!-- Podziękowanie -->
+      <div class="form-step thank-you" style="display:none;">
+        <p>
+          Dziękujemy za wypełnienie formularza!<br>
+          Odezwzwiemy się w ciągu 2 dni roboczych.<br>
+          Pracujemy od poniedziałku do soboty, 9:00–15:00.
+        </p>
+      </div>
     </form>
-  </section>
+  </div>
+
+  <script>
+    const form = document.getElementById('multiStepForm');
+    const steps = form.querySelectorAll('.form-step');
+    let currentStep = 0;
+
+    function showStep(step) {
+      steps.forEach((el, i) => {
+        el.style.display = (i === step) ? 'block' : 'none';
+        if(i === step) el.classList.add('active'); else el.classList.remove('active');
+      });
+    }
+
+    form.addEventListener('click', e => {
+      if(e.target.classList.contains('next-btn')) {
+        const inputs = steps[currentStep].querySelectorAll('input, textarea');
+        for(const input of inputs) {
+          if(!input.checkValidity()) {
+            input.reportValidity();
+            return;
+          }
+        }
+        currentStep++;
+        showStep(currentStep);
+      } else if(e.target.classList.contains('prev-btn')) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      currentStep++;
+      showStep(currentStep);
+    });
+
+    showStep(currentStep);
+  </script>
+
 </body>
 </html>
-
-
-
-
