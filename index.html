@@ -21,59 +21,39 @@
       background-color: #f8f9fa;
       color: #212529;
       line-height: 1.6;
+      padding: 1rem;
     }
     header {
       text-align: center;
       padding: 2rem 1rem;
       background-color: #ffffff;
       position: relative;
+      max-width: 900px;
+      margin: 0 auto;
     }
     header img#logo {
-      max-width: 400px; /* bigger logo */
+      width: 300px;
+      max-width: 90vw; /* na mobile zajmie max 90% szerokości */
+      height: auto;
       display: block;
       margin: 0 auto 1rem auto;
-      position: relative;
-      z-index: 2;
     }
-    /* Container for cars positioned just below the logo */
-    .car-carousel {
-      position: relative;
-      width: 320px; /* same or slightly larger than logo width */
-      height: 80px; /* height for car silhouettes */
+    /* Pasek z sylwetkami pod logo */
+    .banner {
+      width: 320px;
+      max-width: 90vw; /* dostosowanie do mniejszych ekranów */
+      height: 80px;
       margin: 0 auto 1.5rem auto;
-      overflow: visible;
-      pointer-events: none; /* cars not interactive */
+      background: url('car-silhouette.png') repeat-x;
+      background-size: contain;
+      animation: slide-left 6s linear infinite;
     }
-    /* Each car silhouette styling */
-    .car {
-      position: absolute;
-      width: 80px;
-      height: auto;
-      top: 50%;
-      left: 50%;
-      transform-origin: 40px 40px; /* center of each car image */
-      animation: moveCars 8s linear infinite;
-    }
-    /* Position each car at different start animation delays to create spacing */
-    .car:nth-child(1) {
-      animation-delay: 0s;
-    }
-    .car:nth-child(2) {
-      animation-delay: 2s;
-    }
-    .car:nth-child(3) {
-      animation-delay: 4s;
-    }
-    .car:nth-child(4) {
-      animation-delay: 6s;
-    }
-    /* Animation that moves each car in a circle path */
-    @keyframes moveCars {
-      0% {
-        transform: rotate(0deg) translateX(120px) rotate(0deg);
+    @keyframes slide-left {
+      from {
+        background-position: 100% center;
       }
-      100% {
-        transform: rotate(-360deg) translateX(120px) rotate(360deg);
+      to {
+        background-position: 0% center;
       }
     }
     h1 {
@@ -87,6 +67,7 @@
       margin: 1rem auto;
       text-align: center;
       max-width: 800px;
+      padding: 0 1rem;
     }
     .form-container {
       background-color: #ffffff;
@@ -95,9 +76,11 @@
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       max-width: 600px;
+      width: 100%;
     }
     .form-container h2 {
       margin-bottom: 1rem;
+      font-size: 1.5rem;
     }
     form {
       display: flex;
@@ -113,6 +96,7 @@
       border: 1px solid #ced4da;
       border-radius: 4px;
       font-size: 1rem;
+      width: 100%;
     }
     button {
       background-color: #000000;
@@ -123,41 +107,42 @@
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
     }
     button:hover {
       background-color: #333333;
+    }
+
+    /* Responsywność */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      .slogan {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+      }
+      .form-container {
+        padding: 1rem;
+        margin: 1rem auto;
+      }
+      .form-container h2 {
+        font-size: 1.25rem;
+      }
+      header {
+        padding: 1.5rem 1rem;
+      }
+      .banner {
+        height: 60px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <img src="logo - zlomto.pl.png" alt="ZŁOMTO.PL logo" id="logo" />
-    <div class="car-carousel">
-      <img
-        src="car-silhouette.png"
-        alt="Car"
-        class="car"
-        draggable="false"
-      />
-      <img
-        src="car-silhouette.png"
-        alt="Car"
-        class="car"
-        draggable="false"
-      />
-      <img
-        src="car-silhouette.png"
-        alt="Car"
-        class="car"
-        draggable="false"
-      />
-      <img
-        src="car-silhouette.png"
-        alt="Car"
-        class="car"
-        draggable="false"
-      />
-    </div>
+    <div class="banner"></div>
     <h1>Sprzedaj auto za 100 zł – legalnie, szybko i bezpiecznie</h1>
     <p class="slogan">
       Bez stresu i formalności – my zajmiemy się resztą. Wypełnij formularz i
